@@ -18,6 +18,18 @@ tabs:
                     headline: Σελίδες Περιεχομένου
                     template: default
                     status: all
+                gallery:
+                    type: pages
+                    headline: Εικόνες
+                    template: gallery
+                    status: all
+                    max: 1
+                contact:
+                    type: pages
+                    headline: Επικοινωνία
+                    template: contact
+                    status: all
+                    max: 1
 
           - width: 1/3
             sections:

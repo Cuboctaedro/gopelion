@@ -38,7 +38,7 @@ fieldsets:
                 layout: cards
                 multiple: false
     textandgallery:
-        label: Text and Gallery
+        label: Κείμενο και Gallery
         fields:
             layout:
                 label: Layout

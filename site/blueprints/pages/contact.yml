@@ -1,0 +1,21 @@
+title: Contact Page
+
+tabs:
+    content:
+        label: Περιεχόμενο
+        icon: text
+        columns:
+          - width: 2/3
+            sections:
+                content:
+                    type: fields
+                    fields:
+                        introtext:
+                            label: Εισαγωγικό κείμενο
+                            type: textarea
+                            buttons: false
+          - width: 1/3
+            sections:
+                pagefiles:
+                    extends: sections/pagefiles
+    seo: tabs/seo
