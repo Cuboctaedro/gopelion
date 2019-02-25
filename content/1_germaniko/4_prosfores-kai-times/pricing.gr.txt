@@ -1,0 +1,36 @@
+Title: Προσφορές και τιμές
+
+----
+
+Pricetable: 
+
+- 
+  description: Δίκλινο δωμάτιο
+  image:
+    - romy-01.jpg
+  lowprice: 55
+  midprice: 66
+  highprice: 76
+- 
+  description: Τρικλινο δωμάτιο
+  image:
+    - eckart-01.jpg
+  lowprice: 56
+  midprice: 67
+  highprice: 78
+
+----
+
+Introtext: 
+
+----
+
+Blocks: 
+
+----
+
+Description: 
+
+----
+
+Featuredimage: 

@@ -1,0 +1,205 @@
+/*
+ * Theme Name: My Timber Starter Theme
+ * Description: Starter Theme to use with Timber
+ * Author: Upstatement and YOU!
+*/
+
+
+@tailwind preflight;
+
+
+@tailwind components;
+
+.paragraphs p {
+    @apply mb-24;
+}
+
+@screen md {
+    .paragraphs p {
+        @apply mb-32;
+    }
+}
+
+.paragraphs p:last-child {
+    @apply mb-0;
+}
+
+.subheading {
+    @apply text-24 uppercase tracking-wide mb-32 text-center leading-none pt-8 ;
+    font-family: 'Cera PRO Bold';
+}
+
+@screen sm {
+    .subheading {
+        @apply text-30 ;
+    }
+}
+@screen md {
+    .subheading {
+        @apply text-36 ;
+    }
+}
+
+.effect {
+    transition: 0.5s;
+}
+
+@tailwind utilities;
+
+@responsive {
+    .order-1 {
+        order: 1;
+    }
+    .order-2 {
+        order: 2;
+    }
+    .centered {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+}
+
+.slider-picture {
+    display: none;
+}
+@screen sm {
+    .slider-picture {
+        display: block;
+        transform: translateY(-6rem);
+    }
+    .slider-wrapper .controls {
+        margin-left: 60%;
+    }
+}
+
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: #000000;
+    color: white;
+    padding: 8px;
+    z-index: 100;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+.visually-hidden {
+    border: 0;
+    clip: rect(1px, 1px, 1px, 1px);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+#main {
+    flex: 1;
+}
+
+.card-link::after {
+    content: '';
+    position: absolute;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+}
+
+.line {
+    @apply relative text-black no-underline ;
+    &:after {
+        @apply absolute pin-b pin-l w-0 bg-purple h-px ;
+        transition: 0.3s;
+        content: '';
+    }
+    &:hover {
+        @apply text-purple ;
+        &:after {
+            width: 100%;
+        }
+    }
+}
+
+
+
+.facebook {
+    color: #3B5998;
+}
+
+.bg-facebook {
+    background-color: #3B5998;
+}
+
+.twitter {
+    color: #1DA1F2;
+}
+
+.bg-twitter {
+    background-color: #1DA1F2;
+}
+
+.instagram {
+    color: #E4405F;
+}
+
+.bg-instagram {
+    background-color: #E4405F;
+}
+
+.pinterest {
+    color: #BD081C;
+}
+
+.bg-pinterest {
+    background-color: #BD081C;
+}
+
+.linkedin {
+    color: #0077B5;
+}
+
+.bg-linkedin {
+    background-color: #0077B5;
+}
+
+.double-banner .banner-2 {
+    @apply mt-80 ;
+}
+
+[data-toggle='on'] {
+    display:block;
+  }
+
+  [data-toggle='off'] {
+    display:none;
+  }
+
+.font-bold {
+    font-family: 'Cera PRO Bold';
+}
+
+
+.banner-button {
+    opacity: 0;
+    transition-property: opacity;
+    transition-duration: 0.5s;
+}
+.banner:hover .banner-button {
+    opacity: 0.8;
+}
+
+@import 'baguettebox';
+@import 'aos';

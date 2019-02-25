@@ -1,0 +1,58 @@
+title: Pricing Page
+
+tabs:
+    prices:
+        label: Pricing Table
+        icon: calendar
+        columns:
+          - width: 2/3
+            sections:
+                pricecontent:
+                    type: fields
+                    fields:
+                        pricetable:
+                            type: structure
+                            label: Price Table
+                            fields:
+                                description:
+                                    type: text
+                                    label: Description
+                                image:
+                                    type: files
+                                    label: Image
+                                    multiple: false
+                                lowprice:
+                                    type: number
+                                    label: Low Season Price
+                                midprice:
+                                    type: number
+                                    label: Mid Season Price
+                                highprice:
+                                    type: number
+                                    label: High Season Price
+
+          - width: 1/3
+            sections:
+                pagefiles:
+                    extends: sections/pagefiles
+
+    content:
+        label: Content
+        icon: text
+        columns:
+          - width: 2/3
+            sections:
+                content:
+                    type: fields
+                    fields:
+                        introtext:
+                            label: Intro Text
+                            type: textarea
+                            buttons: false
+                        blocks: fields/blocks
+
+          - width: 1/3
+            sections:
+                pagefiles:
+                    extends: sections/pagefiles
+    seo: tabs/seo

@@ -1,0 +1,32 @@
+{
+  "name": "scafold",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "ReadMore.js": "https://github.com/georapbox/ReadMore.js.git",
+    "aos": "^3.0.0-beta.6",
+    "baguettebox.js": "^1.11.0",
+    "cross-env": "^5.2.0",
+    "laravel-mix": "^4.0.14",
+    "laravel-mix-purgecss": "^4.1.0",
+    "laravel-mix-tailwind": "^0.1.0",
+    "lazysizes": "^4.1.5",
+    "sass": "^1.17.0",
+    "siema": "^1.5.1",
+    "tailwindcss": "^0.7.4"
+  },
+  "scripts": {
+    "dev": "npm run development",
+    "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "hot": "cross-env NODE_ENV=development webpack-dev-server --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "prod": "npm run production",
+    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+  },
+  "devDependencies": {
+    "resolve-url-loader": "^2.3.1",
+    "sass-loader": "^7.1.0",
+    "vue-template-compiler": "^2.6.6"
+  }
+}

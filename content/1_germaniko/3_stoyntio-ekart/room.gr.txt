@@ -1,0 +1,29 @@
+Title: Στούντιο Έκαρτ
+
+----
+
+Gallery: 
+
+- eckart-01.jpg
+- eckart-02.jpg
+- eckart-03.jpg
+
+----
+
+Amenities: 
+
+----
+
+Introtext: 
+
+----
+
+Blocks: 
+
+----
+
+Description: 
+
+----
+
+Featuredimage: 

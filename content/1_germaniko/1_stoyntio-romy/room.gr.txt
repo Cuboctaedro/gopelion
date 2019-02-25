@@ -1,0 +1,50 @@
+Title: 
+
+Στούντιο Ρόμυ
+
+----
+
+Gallery: 
+
+- romy-01.jpg
+- romy-02.jpg
+- romy-03.jpg
+
+----
+
+Amenities: 
+
+- 
+  item: Air conditioning
+- 
+  item: Free Wi-Fi
+- 
+  item: Private bathroom
+
+----
+
+Lowprice: 49
+
+----
+
+Midprice: 60
+
+----
+
+Highprice: 75
+
+----
+
+Introtext: 
+
+----
+
+Blocks: 
+
+----
+
+Description: 
+
+----
+
+Featuredimage: 
