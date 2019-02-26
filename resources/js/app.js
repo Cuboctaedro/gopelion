@@ -59,39 +59,39 @@ if (gallerybox) {
 
 }
 
+document.querySelectorAll('.moreless').forEach(block => {
+    let morebutton = block.querySelectorAll('.readmore')[0];
+    let lessbutton = block.querySelectorAll('.readless')[0];
+    let truncated = block.querySelectorAll('.truncated')[0];
+    let fulltext = block.querySelectorAll('.fulltext')[0];
+    morebutton.addEventListener(
+        'click',
+        function(){
+            fulltext.hidden = !fulltext.hidden;
+            truncated.hidden = !truncated.hidden;
+            lessbutton.hidden = !lessbutton.hidden;
+            morebutton.hidden = !morebutton.hidden;
+        },
+        false
+    );
+    lessbutton.addEventListener(
+        'click',
+        function(){
+            fulltext.hidden = !fulltext.hidden;
+            truncated.hidden = !truncated.hidden;
+            lessbutton.hidden = !lessbutton.hidden;
+            morebutton.hidden = !morebutton.hidden;
+        },
+        false
+    );
+
+})
 
 //
 
 AOS.init();
 
 
-// document.querySelectorAll('.moreless').forEach(block => {
-//     let morebutton = block.querySelectorAll('.readmore')[0];
-//     let lessbutton = block.querySelectorAll('.readless')[0];
-//     let truncated = block.querySelectorAll('.truncated')[0];
-//     let fulltext = block.querySelectorAll('.fulltext')[0];
-//     morebutton.addEventListener(
-//         'click',
-//         function(){
-//             fulltext.hidden = !fulltext.hidden;
-//             truncated.hidden = !truncated.hidden;
-//             lessbutton.hidden = !lessbutton.hidden;
-//             morebutton.hidden = !morebutton.hidden;
-//         },
-//         false
-//     );
-//     lessbutton.addEventListener(
-//         'click',
-//         function(){
-//             fulltext.hidden = !fulltext.hidden;
-//             truncated.hidden = !truncated.hidden;
-//             lessbutton.hidden = !lessbutton.hidden;
-//             morebutton.hidden = !morebutton.hidden;
-//         },
-//         false
-//     );
-//
-// })
 //
 //
 //

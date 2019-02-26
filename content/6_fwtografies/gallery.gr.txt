@@ -1,0 +1,46 @@
+Title: Φωτογραφίες
+
+----
+
+Introtext: 
+
+----
+
+Gallery: 
+
+- 
+  galleryimage:
+    - 08@landscape.jpg
+  tags: location
+- 
+  galleryimage:
+    - 10@landscape.jpg
+  tags: location, ghermaniko
+- 
+  galleryimage:
+    - 11@landscape.jpg
+  tags: victoria, mammamia
+- 
+  galleryimage:
+    - breakfast005.jpg
+  tags: activities
+- 
+  galleryimage:
+    - eckart-02.jpg
+  tags: activities, ghermaniko
+- 
+  galleryimage:
+    - ghermaniko-05.jpg
+  tags: ghermaniko
+
+----
+
+Blocks: 
+
+----
+
+Description: 
+
+----
+
+Featuredimage: 

@@ -4,13 +4,18 @@ Title: Στούντιο Έκαρτ
 
 Gallery: 
 
-- eckart-01.jpg
-- eckart-02.jpg
-- eckart-03.jpg
+- 
+  image:
+    - eckart-01.jpg
+  caption: wsrtjdghk
 
 ----
 
 Amenities: 
+
+----
+
+Smalltext: 
 
 ----
 

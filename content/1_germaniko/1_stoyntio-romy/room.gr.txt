@@ -6,9 +6,14 @@ Title:
 
 Gallery: 
 
-- romy-01.jpg
-- romy-02.jpg
-- romy-03.jpg
+- 
+  image:
+    - romy-01.jpg
+  caption: test
+- 
+  image:
+    - romy-03.jpg
+  caption: test 3
 
 ----
 
@@ -20,6 +25,10 @@ Amenities:
   item: Free Wi-Fi
 - 
   item: Private bathroom
+
+----
+
+Smalltext: 
 
 ----
 

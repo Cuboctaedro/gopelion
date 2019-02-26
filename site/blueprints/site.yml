@@ -35,4 +35,19 @@ tabs:
             sections:
                 pagefiles:
                     extends: sections/pagefiles
+                periods:
+                    type: fields
+                    fields:
+                        lowseason:
+                            type: textarea
+                            buttons: false
+                            label: Χαμηλή Περίοδος
+                        midseason:
+                            type: textarea
+                            buttons: false
+                            label: Μεσαία Περίοδος
+                        highseason:
+                            type: textarea
+                            buttons: false
+                            label: Υψηλή Περίοδος
     seo: tabs/seo

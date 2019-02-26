@@ -11,9 +11,17 @@ tabs:
                     type: fields
                     fields:
                         gallery:
-                            type: files
+                            type: structure
                             label: Gallery
                             max: 6
+                            fields:
+                                image:
+                                    type: files
+                                    label: Εικόνα
+                                    multiple: false
+                                caption:
+                                    type: text
+                                    label: Λεζάντα
                         amenities:
                             type: structure
                             label: Amenities
@@ -21,6 +29,10 @@ tabs:
                                 item:
                                     type: text
                                     label: Amenity
+                        smalltext:
+                            type: textarea
+                            buttons: false
+                            label: Σύντομη περιγραφή
                         pricesheading:
                             type: headline
                             label: Prices

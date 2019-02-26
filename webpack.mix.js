@@ -13,7 +13,8 @@ mix
     .purgeCss({
         folders: ['site/templates'],
         extensions: ['twig', 'js', 'php'],
-    });
+    })
+    .version();
 
 
 

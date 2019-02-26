@@ -71,6 +71,9 @@ fieldsets:
     banners:
         label: Banners
         fields:
+            blockheading:
+                type: text
+                label: Τίτλος
             banner:
                 type: structure
                 label: Banner
