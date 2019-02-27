@@ -1,7 +1,7 @@
 import Siema from 'siema';
 import lazysizes from 'lazysizes';
 import baguetteBox from 'baguettebox.js';
-import AOS from 'aos';
+// import AOS from 'aos';
 
 document.documentElement.className += ' js'; // adds class="js" to <html> element
 
@@ -70,31 +70,12 @@ window.addEventListener(
     'scroll',
     throttle(
         function() {
-        	elementFromTop(document.querySelectorAll('.bodywrap'),  'moving',  -1, 'pixels');
-        	elementFromTop(document.querySelectorAll('.bodywrap'),       'gone',       -260, 'pixels');
+        	elementFromTop(document.querySelectorAll('.bodywrap'), 'moving',  -1, 'pixels');
+        	elementFromTop(document.querySelectorAll('.bodywrap'), 'gone', -260, 'pixels');
     	},
         100),
     false
 );
-
-//
-// 	window.addEventListener('resize', debounce(function() {
-// 		elementFromTop(document.querySelectorAll('.peter-river'),  'bg--peter-river bg--fixed',  0, 'pixels'); // as top of element hits top of viewport
-// 		elementFromTop(document.querySelectorAll('.orange'),       'bg--orange bg--fixed',       0, 'pixels');
-// 		elementFromTop(document.querySelectorAll('.amethyst'),     'bg--amethyst bg--fixed',     0, 'pixels');
-// 		elementFromTop(document.querySelectorAll('.shakespeare'),  'bg--shakespeare bg--fixed',  0, 'pixels');
-// 		elementFromTop(document.querySelectorAll('.alizarin'),     'bg--alizarin bg--fixed',     0, 'pixels');
-// 		elementFromTop(document.querySelectorAll('.sun-flower'),   'bg--sun-flower bg--fixed',   0, 'pixels');
-// 		elementFromTop(document.querySelectorAll('.emerald'),      'bg--emerald bg--fixed',      0, 'pixels');
-// 		elementFromTop(document.querySelectorAll('.wisteria'),     'bg--wisteria bg--fixed',     0, 'pixels');
-// 		elementFromTop(document.querySelectorAll('.green-sea'),    'bg--green-sea bg--fixed',    0, 'pixels');
-// 		elementFromTop(document.querySelectorAll('.pumpkin'),      'bg--pumpkin bg--fixed',      0, 'pixels');
-// 		elementFromTop(document.querySelectorAll('.cabaret'),      'bg--cabaret bg--fixed',      0, 'pixels');
-// 		elementFromTop(document.querySelectorAll('.the-end'),      'color--black',               0, 'pixels');
-// 		elementFromTop(document.querySelectorAll('.white'),        'bg--white bg--fixed',      100, 'percent'); // as top of element enters bottom of viewport
-// 		}, 100), false);
-//
-
 
 
 document.querySelectorAll('.slider-gallery').forEach(slider => {
@@ -160,6 +141,33 @@ document.querySelectorAll('[data-toggle-target]').forEach(item => {
     }, false)
 })
 
+document.querySelector('[data-toggle-menu="#menu"]').addEventListener('click', function(){
+    toggleClass(document.querySelector('.bodywrap'), 'stabilize');
+    toggleClass(document.querySelector('#menu'), 'activate');
+}, false)
+
+document.querySelector('.show-phone').addEventListener('click', function(){
+    toggleClass(document.querySelector('#phones'), 'hidden');
+    toggleClass(document.querySelector('#phones'), 'flex');
+}, false)
+
+
+document.querySelectorAll('.has-dropdown-button').forEach(item => {
+
+    let target = document.querySelector(item.querySelector('[data-toggle-target]').getAttribute('data-toggle-target'));
+    let background = document.querySelector('#hoverbackground');
+    item.addEventListener('mouseover', function() {
+        addClass(target, 'open');
+        addClass(background, 'open');
+        addClass(document.querySelector('.bodywrap'), 'openmenu');
+    }, false)
+    item.addEventListener('mouseout', function() {
+        delClass(target, 'open');
+        delClass(background, 'open');
+        delClass(document.querySelector('.bodywrap'), 'openmenu');
+    }, false)
+
+})
 
 document.querySelectorAll('.moreless').forEach(block => {
     let morebutton = block.querySelectorAll('.readmore')[0];
@@ -189,4 +197,4 @@ document.querySelectorAll('.moreless').forEach(block => {
 
 })
 
-AOS.init();
+// AOS.init();

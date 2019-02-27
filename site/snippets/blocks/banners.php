@@ -5,7 +5,7 @@
         <?php snippet('pictures/full', ['image' => $banner->image()->toFile()]); ?>
         <div class="centered text-center">
             <h2 class=" uppercase text-48 sm:text-72 md:text-144 text-bold text-white leading-none mb-16"><?= $banner->heading() ?></h2>
-            <a class="inline-block px-16 sm:px-24 py-8 uppercase bg-white text-grey-darker no-underline tracking-wide shadow-1 hover:shadow-3 banner-button" href="<?= $banner->link()->toPage()->url() ?>" title="<?= $banner->link()->toPage()->title() ?>"><?= t('readmore'); ?></a>
+            <a class="inline-block px-16 sm:px-24 py-8 uppercase no-underline tracking-wide shadow-1 hover:shadow-3 banner-button" href="<?= $banner->link()->toPage()->url() ?>" title="<?= $banner->link()->toPage()->title() ?>"><?= t('readmore'); ?></a>
         </div>
     <?php endforeach; ?>
     </div>
@@ -14,7 +14,7 @@
 
     <div class="flex flex-row flex-wrap double-banner mb-72">
         <?php foreach ($data->banner()->toStructure() as $banner): ?>
-            <div class="relative w-full md:w-1/2 banner-{{ loop.index }} banner">
+            <div class="relative w-full md:w-1/2 banner">
                 <picture>
                     <source type="image/jpeg" media="(max-width: 480px)" srcset="<?= $banner->image()->toFile()->thumb(['width'=> 480,'height'=> 320,'crop'=> true])->url(); ?>">
                     <source type="image/jpeg" media="(max-width: 768px)" srcset="<?= $banner->image()->toFile()->thumb(['width'=> 768,'height'=> 512,'crop'=> true])->url(); ?>">

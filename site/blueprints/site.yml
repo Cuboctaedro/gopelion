@@ -116,6 +116,35 @@ tabs:
                                  email:
                                     label: Email
                                     type: email
+                        social:
+                            label: Social Media
+                            type: headline
+                            numbered: false
+                        facebook:
+                            label: Facebook
+                            type: url
+                        twitter:
+                            label: Twitter
+                            type: url
+                        instagram:
+                            label: Instagram
+                            type: url
+                        footer:
+                            label: Κείμενα Footer
+                            type: headline
+                            numbered: false
+                        footertitle:
+                            type: textarea
+                            buttons:
+                              - bold
+                              - italic
+                            label: Τίτλος Footer
+                        footerlocation:
+                            type: textarea
+                            buttons:
+                              - bold
+                              - italic
+                            label: Τοποθεσία Footer
 
           - width: 1/3
             sections:

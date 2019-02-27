@@ -22,5 +22,6 @@ return array (
         'season_high'        => 'High Season',
         'amenities'          => 'Amenities',
         'pricesandoffers'    => 'Prices and Offers',
+        'followus'           => 'Follow Us',
     ]
 );

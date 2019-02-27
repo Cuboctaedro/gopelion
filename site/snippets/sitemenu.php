@@ -3,7 +3,7 @@ $items = $pages->listed();
 if($items->isNotEmpty()):
 ?>
 <nav class="menu flex flex-row">
-    <button class="menu-button flex flex-row items-center p-16 uppercase type-14 tracking-wide no-underline text-grey-dark hover:text-black effect" data-toggle-target="#menu">
+    <button class="menu-button flex flex-row items-center p-16 uppercase type-14 tracking-wide no-underline text-grey-dark hover:text-black effect" data-toggle-menu="#menu">
         <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
         <span class="pl-16">Menu</span>
     </button>
@@ -13,10 +13,10 @@ if($items->isNotEmpty()):
         </div>
         <ul class="menu-list list-reset py-16">
         <?php foreach($items as $item): ?>
-            <li>
-                <?php if($item->hasListedChildren()):?>
+            <?php if($item->hasListedChildren()):?>
+                <li class="has-dropdown-button z-0">
                     <span class="flex flex-row menulink">
-                        <a class="has-dropdown-button uppercase type-14 tracking-wide no-underline text-grey-dark hover:text-black effect <?php e($item->isOpen(), ' text-purple ') ?> block " href="<?= $item->url() ?>">
+                        <a class=" uppercase type-14 tracking-wide no-underline text-grey-dark hover:text-black effect <?php e($item->isOpen(), ' text-purple ') ?> block " href="<?= $item->url() ?>">
                             <?= $item->title()->html() ?>
                         </a>
                         <button class="dropdown-button" data-toggle-target="#submenu-<?= $item->slug() ?>"><svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"/><path d="M0 0h24v24H0z" fill="none"/></svg></button>
@@ -30,12 +30,14 @@ if($items->isNotEmpty()):
                             </li>
                         <?php endforeach ?>
                     </ul>
-                <?php else: ?>
+                </li>
+            <?php else: ?>
+                <li>
                     <a class="menulink uppercase type-14 tracking-wide no-underline text-grey-dark hover:text-black effect <?php e($item->isOpen(), ' text-purple ') ?> block " href="<?= $item->url() ?>">
                         <?= $item->title()->html() ?>
                     </a>
-                <?php endif; ?>
-            </li>
+                </li>
+            <?php endif; ?>
         <?php endforeach ?>
         </ul>
     </div>

@@ -68,14 +68,9 @@
         width: 100%;
         text-align: center;
     }
-    .phone {
+    .phone-langs {
         order: 1;
-        width: 33%;
-    }
-    .langs {
-        order: 2;
-        width: 33%;
-        text-align: center;
+        width: 66%;
     }
     .menu {
         order: 3;
@@ -102,15 +97,9 @@
             text-align: left;
             @apply flex-grow ;
         }
-        .phone {
+        .phone-langs {
             order: 2;
             width: auto;
-            flex: none;
-        }
-        .langs {
-            order: 3;
-            width: auto;
-            text-align: center;
             flex: none;
         }
         .menu {
@@ -131,20 +120,15 @@
         @apply justify-between ;
         .subtitle {
             order: 1;
-            width: auto;
+            width: 40%;
             text-align: left;
-            @apply flex-no-grow ;
+            flex: none;
         }
-        .phone {
+        .phone-langs {
             order: 3;
-            width: auto;
+            width: 40%;
             flex: none;
-        }
-        .langs {
-            order: 4;
-            width: auto;
-            text-align: center;
-            flex: none;
+            @apply justify-end ;
         }
         .menu {
             order: 5;
@@ -164,6 +148,9 @@
                 li:last-child {
                     border-right: none;
                 }
+                li li {
+                    border-right: none;
+                }
                 a {
                     @apply px-16 ;
                 }
@@ -177,21 +164,33 @@
         }
         .logos {
             order: 2;
-            width: auto;
+            width: 20%;
+            flex: none;
             padding-bottom: 0;
         }
     }
 }
 .moving #siteheader {
-    @apply fixed shadow-2 ;
+    @apply fixed shadow-2 w-full ;
     z-index: 1000;
 }
 .gone #siteheader {
-    display: none;
+    @apply hidden ;
+}
+.openmenu #siteheader {
+    @apply relative shadow-2 ;
+    z-index: 1000;
+}
+.openmenu.moving #siteheader {
+    @apply fixed ;
+}
+.stabilize.gone #siteheader {
+    @apply relative shadow-2 block ;
 }
 
+
 #siteheader .menu-wrapper.activate {
-    @apply block fixed pin bg-grey-darker opacity-75 text-white p-32 ;
+    @apply block fixed pin bg-grey-darker opacity-75 text-white p-32 z-50 ;
     .menulink {
         @apply text-white py-8 border-b border-white border-solid ;
         .has-dropdown-button {
@@ -221,6 +220,29 @@
 @screen sm {
     #siteheader .menu-wrapper.activate {
         @apply p-64 ;
+    }
+}
+
+#hoverbackground {
+    @apply  opacity-0 z-0 ;
+}
+
+@screen md {
+    #siteheader .menu-wrapper {
+        .has-dropdown-button {
+            @apply relative ;
+        }
+        .dropdown.open {
+            @apply block absolute w-360 text-center text-24 py-64 z-50 ;
+            left: 50%;
+            transform: translateX(-50%);
+            a {
+                @apply block py-16 text-white no-underline font-regular ;
+            }
+        }
+    }
+    #hoverbackground.open {
+        @apply block absolute pin  bg-grey-dark opacity-75 effect z-40 ;
     }
 }
 
@@ -314,48 +336,7 @@ body {
 }
 
 
-
-.facebook {
-    color: #3B5998;
-}
-
-.bg-facebook {
-    background-color: #3B5998;
-}
-
-.twitter {
-    color: #1DA1F2;
-}
-
-.bg-twitter {
-    background-color: #1DA1F2;
-}
-
-.instagram {
-    color: #E4405F;
-}
-
-.bg-instagram {
-    background-color: #E4405F;
-}
-
-.pinterest {
-    color: #BD081C;
-}
-
-.bg-pinterest {
-    background-color: #BD081C;
-}
-
-.linkedin {
-    color: #0077B5;
-}
-
-.bg-linkedin {
-    background-color: #0077B5;
-}
-
-.double-banner .banner-2 {
+.double-banner .banner:last-child {
     @apply mt-80 ;
 }
 
@@ -368,13 +349,12 @@ body {
   }
 
 .banner-button {
-    opacity: 0;
-    transition-property: opacity;
+    @apply text-white bg-transparent opacity-50 ;
     transition-duration: 0.5s;
 }
 .banner:hover .banner-button {
-    opacity: 0.8;
+    @apply text-grey-darker bg-white opacity-75 ;
 }
 
 @import 'baguettebox';
-@import 'aos';
+// @import 'aos';

@@ -23,6 +23,7 @@ return array (
         'season_high'        => 'Υψηλή Περίοδος',
         'amenities'          => 'Παροχές',
         'pricesandoffers'    => 'Τιμές και Προσφορές',
+        'followus'           => 'Ακολουθήστε μας',
     ]
 
 );
