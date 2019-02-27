@@ -1,3 +1,27 @@
+@import url("//hello.myfonts.net/count/38cc54");
+
+
+@font-face {
+    font-family: 'CeraPRO';
+    font-weight: 700;
+    src: url('fonts/38CC54_0_0.eot');
+    src: url('fonts/38CC54_0_0.eot?#iefix') format('embedded-opentype'),
+    url('fonts/38CC54_0_0.woff2') format('woff2'),
+    url('fonts/38CC54_0_0.woff') format('woff'),
+    url('fonts/38CC54_0_0.ttf') format('truetype');
+}
+
+
+@font-face {
+    font-family: 'CeraPRO';
+    font-weight: 400;
+    src: url('fonts/38CC54_1_0.eot');
+    src: url('fonts/38CC54_1_0.eot?#iefix') format('embedded-opentype'),
+    url('fonts/38CC54_1_0.woff2') format('woff2'),
+    url('fonts/38CC54_1_0.woff') format('woff'),
+    url('fonts/38CC54_1_0.ttf') format('truetype');
+}
+
 
 @tailwind preflight;
 
@@ -19,8 +43,7 @@
 }
 
 .subheading {
-    @apply text-24 uppercase tracking-wide mb-32 text-center leading-none pt-8 ;
-    font-family: 'Cera PRO Bold';
+    @apply text-24 uppercase tracking-wide mb-32 text-center leading-none pt-8 font-bold ;
 }
 
 @screen sm {
@@ -36,6 +59,169 @@
 
 .effect {
     transition: 0.5s;
+}
+
+#siteheader{
+    background-color: #fff;
+    .subtitle {
+        order: 4;
+        width: 100%;
+        text-align: center;
+    }
+    .phone {
+        order: 1;
+        width: 33%;
+    }
+    .langs {
+        order: 2;
+        width: 33%;
+        text-align: center;
+    }
+    .menu {
+        order: 3;
+        width: 33%;
+        justify-content: flex-end;
+        .menu-wrapper {
+            display: none;
+        }
+    }
+    .close-buttom-wrap {
+        @apply hidden ;
+    }
+    .logos {
+        order: 5;
+        width: 100%;
+        padding-bottom: 24px;
+    }
+}
+@screen sm {
+    #siteheader{
+        .subtitle {
+            order: 1;
+            width: auto;
+            text-align: left;
+            @apply flex-grow ;
+        }
+        .phone {
+            order: 2;
+            width: auto;
+            flex: none;
+        }
+        .langs {
+            order: 3;
+            width: auto;
+            text-align: center;
+            flex: none;
+        }
+        .menu {
+            order: 4;
+            width: auto;
+            flex: none;
+        }
+        .logos {
+            order: 5;
+            width: 100%;
+
+        }
+    }
+}
+
+@screen md {
+    #siteheader{
+        @apply justify-between ;
+        .subtitle {
+            order: 1;
+            width: auto;
+            text-align: left;
+            @apply flex-no-grow ;
+        }
+        .phone {
+            order: 3;
+            width: auto;
+            flex: none;
+        }
+        .langs {
+            order: 4;
+            width: auto;
+            text-align: center;
+            flex: none;
+        }
+        .menu {
+            order: 5;
+            width: 100%;
+            flex: none;
+            .menu-button {
+                display: none;
+            }
+            .menu-wrapper {
+                @apply block w-full ;
+                .menu-list {
+                    @apply flex w-full justify-center flex-no-wrap items-center border-grey-light font-bold ;
+                }
+                li {
+                    border-right: 1px solid;
+                }
+                li:last-child {
+                    border-right: none;
+                }
+                a {
+                    @apply px-16 ;
+                }
+                .dropdown-button {
+                    display: none;
+                }
+            }
+            .dropdown {
+                display: none;
+            }
+        }
+        .logos {
+            order: 2;
+            width: auto;
+            padding-bottom: 0;
+        }
+    }
+}
+.moving #siteheader {
+    @apply fixed shadow-2 ;
+    z-index: 1000;
+}
+.gone #siteheader {
+    display: none;
+}
+
+#siteheader .menu-wrapper.activate {
+    @apply block fixed pin bg-grey-darker opacity-75 text-white p-32 ;
+    .menulink {
+        @apply text-white py-8 border-b border-white border-solid ;
+        .has-dropdown-button {
+            @apply w-240 ;
+        }
+        .dropdown-button {
+            @apply px-32 ;
+        }
+        a, button {
+            @apply text-white;
+        }
+    }
+    .dropdown {
+        display: none;
+    }
+    .dropdown.activate {
+        @apply block pb-16 ;
+        a {
+            @apply block no-underline text-white py-8 ;
+        }
+    }
+    .close-buttom-wrap {
+        @apply flex ;
+    }
+}
+
+@screen sm {
+    #siteheader .menu-wrapper.activate {
+        @apply p-64 ;
+    }
 }
 
 @tailwind utilities;
@@ -180,11 +366,6 @@ body {
   [data-toggle='off'] {
     display:none;
   }
-
-.font-bold {
-    font-family: 'Cera PRO Bold';
-}
-
 
 .banner-button {
     opacity: 0;

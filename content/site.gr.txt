@@ -2,6 +2,30 @@ Title: Go Pelion
 
 ----
 
+Sitesubtitle: Ξενώνες **Γερμανικό** και **Βικτώρια** στο Πήλιο
+
+----
+
+Ghermanikosmall: 
+
+- ghermaniko-small.png
+
+----
+
+Victoriasmall: 
+
+- victoria-small.png
+
+----
+
+Ghermaniko: 
+
+----
+
+Victoria: 
+
+----
+
 Lowseason: 
 
 1 Απριλίου - 31 Μαΐου & 12 Σεπτεμβρίου - 31 Οκτωβρίου
@@ -17,6 +41,23 @@ Midseason:
 Highseason: 
 
 1 Ιουλίου - 31 Αυγούστου
+
+----
+
+Fixed: (30) 24260 49872
+
+----
+
+Mobile: (30) 6946 510004
+
+----
+
+Maillist: 
+
+- 
+  email: info@gopelion.com
+- 
+  email: damouhari.harbor@gmail.com
 
 ----
 

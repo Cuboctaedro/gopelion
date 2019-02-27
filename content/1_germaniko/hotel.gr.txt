@@ -1,4 +1,4 @@
-Title: Γερμανικό
+Title: Ξενοδοχείο Γερμανικό
 
 ----
 
@@ -30,6 +30,4 @@ Description:
 
 ----
 
-Featuredimage: 
-
-- ghermaniko-01.jpg
+Featuredimage: - ghermaniko-01.jpg

@@ -30,14 +30,59 @@ tabs:
                     template: contact
                     status: all
                     max: 1
+                legal:
+                    type: pages
+                    headline: Ψιλά γράμματα
+                    template: simple
+                    status: all
 
           - width: 1/3
             sections:
                 pagefiles:
                     extends: sections/pagefiles
-                periods:
+    sitedata:
+        label: Στοιχεία site
+        icon: edit
+        columns:
+          - width: 2/3
+            sections:
+                datasite:
                     type: fields
                     fields:
+                        titles:
+                            label: Τίτλοι και περιγραφές
+                            type: headline
+                            numbered: false
+                        sitesubtitle:
+                            type: textarea
+                            label: Υπότιτλος
+                            buttons:
+                              - bold
+                              - italic
+                        logos:
+                            label: Λογότυπα
+                            type: headline
+                            numbered: false
+                        ghermanikosmall:
+                            label: Γερμανικό μικρό
+                            type: files
+                            multiple: false
+                        victoriasmall:
+                            label: Βικτώρια μικρό
+                            type: files
+                            multiple: false
+                        ghermaniko:
+                            label: Γερμανικό
+                            type: files
+                            multiple: false
+                        victoria:
+                            label: Βικτώρια
+                            type: files
+                            multiple: false
+                        seasons:
+                            label: Περίοδοι
+                            type: headline
+                            numbered: false
                         lowseason:
                             type: textarea
                             buttons: false
@@ -50,4 +95,31 @@ tabs:
                             type: textarea
                             buttons: false
                             label: Υψηλή Περίοδος
+                        phones:
+                            label: Τηλέφωνα
+                            type: headline
+                            numbered: false
+                        fixed:
+                            type: text
+                            label: Σταθερό
+                        mobile:
+                            type: text
+                            label: Κινητό
+                        mails:
+                            label: Email
+                            type: headline
+                            numbered: false
+                        maillist:
+                            type: structure
+                            label: Λίστα email
+                            fields:
+                                 email:
+                                    label: Email
+                                    type: email
+
+          - width: 1/3
+            sections:
+                pagefiles:
+                    extends: sections/pagefiles
+
     seo: tabs/seo

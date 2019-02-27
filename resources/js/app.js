@@ -3,6 +3,100 @@ import lazysizes from 'lazysizes';
 import baguetteBox from 'baguettebox.js';
 import AOS from 'aos';
 
+document.documentElement.className += ' js'; // adds class="js" to <html> element
+
+function debounce(fn, ms) { // https://remysharp.com/2010/07/21/throttling-function-calls
+    var time = null;
+    return function() {
+        var a = arguments, t = this;
+        clearTimeout(time);
+        time = setTimeout(function() { fn.apply(t, a); }, ms);
+    }
+}
+
+
+function throttle(fn, ms) { // Ryan Taylor comment - https://remysharp.com/2010/07/21/throttling-function-calls
+    var time, last = 0;
+    return function() {
+        var a = arguments, t = this, now = +(new Date), exe = function() { last = now; fn.apply(t, a); };
+        clearTimeout(time);
+        (now >= last + ms) ? exe() : time = setTimeout(exe, ms);
+    }
+}
+
+
+function hasClass(el, cls) {
+    if (el.className.match('(?:^|\\s)'+cls+'(?!\\S)')) { return true; }
+}
+
+function addClass(el, cls) {
+    if (!el.className.match('(?:^|\\s)'+cls+'(?!\\S)')) { el.className += ' '+cls; }
+}
+
+function delClass(el, cls) {
+    el.className = el.className.replace(new RegExp('(?:^|\\s)'+cls+'(?!\\S)'),'');
+}
+
+function toggleClass(el, cls) {
+    if ( hasClass(el, cls) ) {
+        delClass(el, cls);
+    } else {
+        addClass(el, cls);
+    }
+}
+
+// params: element, classes to add, distance from top, unit ('percent' or 'pixels')
+function elementFromTop(elem, classToAdd, distanceFromTop, unit) {
+    var winY = window.innerHeight || document.documentElement.clientHeight,
+        elemLength = elem.length, distTop, distPercent, distPixels, distUnit, i;
+    for (i = 0; i < elemLength; ++i) {
+        distTop = elem[i].getBoundingClientRect().top;
+        distPercent = Math.round((distTop / winY) * 100);
+        distPixels = Math.round(distTop);
+        distUnit = unit == 'percent' ? distPercent : distPixels;
+        if (distUnit <= distanceFromTop) {
+            if (!hasClass(elem[i], classToAdd)) {
+                addClass(elem[i], classToAdd);
+            }
+        } else {
+            delClass(elem[i], classToAdd);
+        }
+    }
+}
+
+
+
+window.addEventListener(
+    'scroll',
+    throttle(
+        function() {
+        	elementFromTop(document.querySelectorAll('.bodywrap'),  'moving',  -1, 'pixels');
+        	elementFromTop(document.querySelectorAll('.bodywrap'),       'gone',       -260, 'pixels');
+    	},
+        100),
+    false
+);
+
+//
+// 	window.addEventListener('resize', debounce(function() {
+// 		elementFromTop(document.querySelectorAll('.peter-river'),  'bg--peter-river bg--fixed',  0, 'pixels'); // as top of element hits top of viewport
+// 		elementFromTop(document.querySelectorAll('.orange'),       'bg--orange bg--fixed',       0, 'pixels');
+// 		elementFromTop(document.querySelectorAll('.amethyst'),     'bg--amethyst bg--fixed',     0, 'pixels');
+// 		elementFromTop(document.querySelectorAll('.shakespeare'),  'bg--shakespeare bg--fixed',  0, 'pixels');
+// 		elementFromTop(document.querySelectorAll('.alizarin'),     'bg--alizarin bg--fixed',     0, 'pixels');
+// 		elementFromTop(document.querySelectorAll('.sun-flower'),   'bg--sun-flower bg--fixed',   0, 'pixels');
+// 		elementFromTop(document.querySelectorAll('.emerald'),      'bg--emerald bg--fixed',      0, 'pixels');
+// 		elementFromTop(document.querySelectorAll('.wisteria'),     'bg--wisteria bg--fixed',     0, 'pixels');
+// 		elementFromTop(document.querySelectorAll('.green-sea'),    'bg--green-sea bg--fixed',    0, 'pixels');
+// 		elementFromTop(document.querySelectorAll('.pumpkin'),      'bg--pumpkin bg--fixed',      0, 'pixels');
+// 		elementFromTop(document.querySelectorAll('.cabaret'),      'bg--cabaret bg--fixed',      0, 'pixels');
+// 		elementFromTop(document.querySelectorAll('.the-end'),      'color--black',               0, 'pixels');
+// 		elementFromTop(document.querySelectorAll('.white'),        'bg--white bg--fixed',      100, 'percent'); // as top of element enters bottom of viewport
+// 		}, 100), false);
+//
+
+
+
 document.querySelectorAll('.slider-gallery').forEach(slider => {
     var printSlideIndex = function() {
         slider.querySelector('.slide-index').innerHTML = this.currentSlide + 1;
@@ -59,6 +153,14 @@ if (gallerybox) {
 
 }
 
+document.querySelectorAll('[data-toggle-target]').forEach(item => {
+    item.addEventListener('click', function(){
+        let target = document.querySelector(this.getAttribute('data-toggle-target'));
+        toggleClass(target, 'activate');
+    }, false)
+})
+
+
 document.querySelectorAll('.moreless').forEach(block => {
     let morebutton = block.querySelectorAll('.readmore')[0];
     let lessbutton = block.querySelectorAll('.readless')[0];
@@ -87,50 +189,4 @@ document.querySelectorAll('.moreless').forEach(block => {
 
 })
 
-//
-
 AOS.init();
-
-
-//
-//
-//
-// document.addEventListener('click', function (e) {
-//     var button = e.target;
-//
-//     if (button.getAttribute('data-reset') === 'true') {
-//         // Reset the filters
-//         var filter = button.getAttribute('data-filter');
-//         resetFilter(filter);
-//     } else {
-//         // Filter the tag
-//         var filter = button.getAttribute('data-filter');
-//         var tag    = button.getAttribute('data-filter-tag');
-//         filterTag(filter, tag);
-//     }
-// });
-//
-// // Filter tag
-// function filterTag (filter, tag) {
-//     var items = document.querySelectorAll('.' + filter + ' > a');
-//     resetFilter(filter);
-//     for (var i = 0; i < items.length; i++) {
-//         var itemTags = items[i].getAttribute('data-tags');
-//
-//         // Catch case with no tags
-//         if (itemTags != null) {
-//             if (itemTags.indexOf(tag) < 0) {
-//                 items[i].setAttribute('data-toggle', 'off');
-//             }
-//         }
-//     }
-// }
-//
-// // Reset filters
-// function resetFilter (filter) {
-//     var items = document.querySelectorAll('.' + filter + ' > a');
-//
-//     for (var i = 0; i < items.length; i++) {
-//         items[i].setAttribute('data-toggle', 'on');
-//     }
-// }

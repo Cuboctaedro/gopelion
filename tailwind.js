@@ -68,7 +68,7 @@ module.exports = {
 
     fonts: {
         'sans': [
-            'Cera PRO Regular',
+            'CeraPRO',
             'Roboto',
             'Helvetica Neue',
             'sans-serif',

@@ -8,6 +8,7 @@ return array (
     'name'      => 'English',
     'translations' => [
         'isocode'  => 'en',
+        'menuname' => 'eng',
         'readmore'           => 'Read More',
         'readless'           => 'Read Less',
         'gallery_all'        => 'All',

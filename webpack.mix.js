@@ -14,7 +14,8 @@ mix
         folders: ['site/templates'],
         extensions: ['twig', 'js', 'php'],
     })
-    .version();
+    .version()
+    .copyDirectory('resources/fonts', 'assets/fonts');
 
 
 

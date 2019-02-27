@@ -9,6 +9,7 @@ return array (
     'url'       => '/',
     'translations' => [
         'isocode'  => 'el',
+        'menuname' => 'ελλ',
         'readmore' => 'Περισσότερα',
         'readless' => 'Λιγότερα',
         'gallery_all'        => 'Όλες',
