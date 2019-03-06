@@ -28,6 +28,17 @@
 
 @tailwind components;
 
+a,
+.link {
+    @apply text-grey-main no-underline  ;
+    transition: 0.5s;
+}
+
+a:hover,
+.link:hover {
+    @apply text-purple ;
+}
+
 .paragraphs p {
     @apply mb-24;
 }
@@ -43,22 +54,33 @@
 }
 
 .subheading {
-    @apply text-24 uppercase tracking-wide mb-32 text-center leading-none pt-8 font-bold ;
+    @apply text-36 uppercase tracking-wide leading-none font-bold ;
 }
-
 @screen sm {
     .subheading {
-        @apply text-30 ;
-    }
-}
-@screen md {
-    .subheading {
-        @apply text-36 ;
+        @apply text-42 ;
     }
 }
 
+.maintext {
+    @apply text-18 ;
+}
+@screen sm {
+    .maintext {
+        @apply text-21 ;
+    }
+}
 .effect {
     transition: 0.5s;
+}
+
+
+.landscape {
+    height: 0;
+    overflow: hidden;
+    position: relative;
+    padding-top: 66.666% !important;
+    width: 100%;
 }
 
 #siteheader{
@@ -245,6 +267,17 @@
         @apply block absolute pin  bg-grey-dark opacity-75 effect z-40 ;
     }
 }
+.zoomimage {
+    overflow: hidden;
+}
+.zoomimage img {
+    transition: all 1.5s;
+}
+.zoomimage:hover img {
+    transform: scale(1.1);
+}
+
+
 
 @tailwind utilities;
 
@@ -263,18 +296,6 @@
       }
 }
 
-.slider-picture {
-    display: none;
-}
-@screen sm {
-    .slider-picture {
-        display: block;
-        transform: translateY(-6rem);
-    }
-    .slider-wrapper .controls {
-        margin-left: 60%;
-    }
-}
 
 .skip-link {
     position: absolute;
@@ -311,30 +332,6 @@ body {
     flex: 1;
 }
 
-.card-link::after {
-    content: '';
-    position: absolute;
-    top:0;
-    left:0;
-    bottom:0;
-    right:0;
-}
-
-.line {
-    @apply relative text-black no-underline ;
-    &:after {
-        @apply absolute pin-b pin-l w-0 bg-purple h-px ;
-        transition: 0.3s;
-        content: '';
-    }
-    &:hover {
-        @apply text-purple ;
-        &:after {
-            width: 100%;
-        }
-    }
-}
-
 
 .double-banner .banner:last-child {
     @apply mt-80 ;
@@ -348,13 +345,6 @@ body {
     display:none;
   }
 
-.banner-button {
-    @apply text-white bg-transparent opacity-50 ;
-    transition-duration: 0.5s;
-}
-.banner:hover .banner-button {
-    @apply text-grey-darker bg-white opacity-75 ;
-}
 
 @import 'baguettebox';
 // @import 'aos';

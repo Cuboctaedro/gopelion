@@ -1,28 +1,32 @@
+<?php
+if(!isset($layout)) { $layout = $data->layout(); }
+if(!isset($text)) { $text = $data->text(); }
+if(!isset($heading)) { $heading = $data->heading(); }
+if(isset($morelink)) { $link = $morelink; } else { $link = false; }
+
+?>
+
 <div class="flex flex-row flex-wrap mb-72">
-    <div class="w-full md:w-1/2 <?php e($data->layout() == 'imagetext', ' md:order-2 '); ?>" >
-        <h2 class="subheading px-8 sm:px-16 md:text-left md:px-64" <?php e($data->layout() == 'imagetext', ' data-aos="fade-left" ', ' data-aos="fade-right" '); ?>><?= $data->heading() ?></h2>
-        <hr class="mb-32 block h-0 border-b border-black border-solid mx-auto md:mx-64 w-240" />
-        <?php snippet('parts/moreless', ['text'=> $data->text()]) ?>
-    </div>
-    <div class="w-full md:w-1/2 relative h-auto slider-wrapper <?php e($data->layout() == 'imagetext', ' md:order-1 '); ?>">
-        <div class="slider-gallery ">
-            <ul class="list-reset siema">
+    <?php snippet('parts/textblock', ['text' => $text, 'heading' => $heading, 'layout' => $layout, 'link' => $link]) ?>
+    <div class="w-full md:w-auto md:flex-1 <?php e($data->layout() == 'imagetext', ' md:order-1 '); ?>">
+        <div class="slider-gallery">
+            <ul class="list-reset landscape">
                 <?php foreach($data->gallery()->toFiles() as $image): ?>
-                    <li class="slide">
-                        <?php snippet('pictures/med', ['image' => $image]) ?>
+                    <li class="absolute pin w-full h-full">
+                        <?php snippet('pictures/landscape-medium', ['image' => $image]) ?>
                     </li>
                 <?php endforeach; ?>
             </ul>
-            <div class="controls flex flex-row items-center justify-center sm:justify-start pt-8">
-                <button class="prev text-24 px-8 leading-none text-grey-dark">&#10229;</button>
+            <div class="controls flex flex-row items-center pt-8 float-right">
+                <button class="prev text-24 px-8 leading-none link">&#10229;</button>
                 <div>
                     <span class="slide-index text-14 leading-loose"></span><span class="total text-14 leading-loose"> / <?= $data->gallery()->toFiles()->count(); ?></span>
                 </div>
-                <button class="next text-24 px-8 leading-none text-grey-dark">&#10230;</button>
+                <button class="next text-24 px-8 leading-none link">&#10230;</button>
             </div>
         </div>
-        <div class="slider-picture shadow-2 w-1/2 ml-72" >
-            <?php snippet('pictures/med', ['image' => $data->image()->toFile()]) ?>
+        <div class="hidden sm:block shadow-2 w-1/2 ml-24 -mt-72 md:ml-50 md:-mt-50 z-10 relative" >
+            <?php snippet('pictures/small', ['image' => $data->image()->toFile()]) ?>
         </div>
     </div>
 </div>

@@ -35,6 +35,7 @@ tabs:
                             label: Σύντομη περιγραφή
                         pricesheading:
                             type: headline
+                            numbered: false
                             label: Prices
                         lowprice:
                             type: number

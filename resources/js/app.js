@@ -1,4 +1,4 @@
-import Siema from 'siema';
+// import Siema from 'siema';
 import lazysizes from 'lazysizes';
 import baguetteBox from 'baguettebox.js';
 // import AOS from 'aos';
@@ -78,26 +78,26 @@ window.addEventListener(
 );
 
 
-document.querySelectorAll('.slider-gallery').forEach(slider => {
-    var printSlideIndex = function() {
-        slider.querySelector('.slide-index').innerHTML = this.currentSlide + 1;
-    }
-    var siema = slider.querySelectorAll('.siema')[0];
-    var gallery = new Siema({
-        onInit: printSlideIndex,
-        onChange: printSlideIndex,
-        selector: siema,
-        duration: 500,
-        loop: true,
-    });
-    var prev = slider.querySelector('.prev');
-    var next = slider.querySelector('.next');
-
-    prev.addEventListener('click', () => gallery.prev());
-    next.addEventListener('click', () => gallery.next());
-
-    // setInterval(() => gallery.next(), 2500);
-});
+// document.querySelectorAll('.slider-gallery').forEach(slider => {
+//     var printSlideIndex = function() {
+//         slider.querySelector('.slide-index').innerHTML = this.currentSlide + 1;
+//     }
+//     var siema = slider.querySelectorAll('.siema')[0];
+//     var gallery = new Siema({
+//         onInit: printSlideIndex,
+//         onChange: printSlideIndex,
+//         selector: siema,
+//         duration: 500,
+//         loop: true,
+//     });
+//     var prev = slider.querySelector('.prev');
+//     var next = slider.querySelector('.next');
+//
+//     prev.addEventListener('click', () => gallery.prev());
+//     next.addEventListener('click', () => gallery.next());
+//
+//     // setInterval(() => gallery.next(), 2500);
+// });
 
 
 var gallerybox = document.querySelector('.photo-gallery-container');
@@ -169,11 +169,11 @@ document.querySelectorAll('.has-dropdown-button').forEach(item => {
 
 })
 
-document.querySelectorAll('.moreless').forEach(block => {
-    let morebutton = block.querySelectorAll('.readmore')[0];
-    let lessbutton = block.querySelectorAll('.readless')[0];
-    let truncated = block.querySelectorAll('.truncated')[0];
-    let fulltext = block.querySelectorAll('.fulltext')[0];
+document.querySelectorAll('[data-role="moreless"]').forEach(block => {
+    let morebutton = block.querySelectorAll('[data-role="readmore"]')[0];
+    let lessbutton = block.querySelectorAll('[data-role="readless"]')[0];
+    let truncated = block.querySelectorAll('[data-role="truncated"]')[0];
+    let fulltext = block.querySelectorAll('[data-role="fulltext"]')[0];
     morebutton.addEventListener(
         'click',
         function(){
