@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="canonical" href="<?= $page->url() ?>"/>
     <?php foreach ($kirby->languages() as $lang):?>
-        <link rel="alternate" hreflang="<?= t('isocode'); ?>" href="<?= $page->url($lang->code()) ?>" />
+        <link rel="alternate" hreflang="<?= $lang->translations()['isocode'] ?>" href="<?= $page->url($lang->code()) ?>" />
     <?php endforeach; ?>
 
     <?= mix('/app.css') ?>

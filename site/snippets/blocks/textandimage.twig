@@ -1,0 +1,27 @@
+
+{% if data.layout == 'textimage' %}
+
+    {% embed "@snippets/containers/wrapleft.twig" %}
+        {% block wrapleftone %}
+            {% include '@snippets/parts/textblock.twig' with {'heading': data.heading, 'text' : data.text } %}
+        {% endblock %}
+
+        {% block wraplefttwo %}
+<?php snippet('pictures/med', ['image' => $image->toFile()]) ?>
+        {% endblock %}
+    {% endembed %}
+
+{% else %}
+
+    {% embed "@snippets/containers/wrapright.twig" %}
+        {% block wraprightone %}
+<?php snippet('pictures/med', ['image' => $image->toFile()]) ?>
+        {% endblock %}
+
+        {% block wraprighttwo %}
+            {% include '@snippets/parts/textblock.twig' with {'heading': data.heading, 'text' : data.text } %}
+        {% endblock %}
+
+    {% endembed %}
+
+{% endif %}

@@ -22,7 +22,8 @@
         "getkirby/cms": "^3.0",
         "timoetting/kirby-builder": "^2.0",
         "mzur/kirby-uniform": "4.0",
-        "diverently/laravel-mix-kirby": "^1.1"
+        "diverently/laravel-mix-kirby": "^1.1",
+        "mgfagency/kirby-twig": "^1.0"
     },
     "config": {
         "optimize-autoloader": true

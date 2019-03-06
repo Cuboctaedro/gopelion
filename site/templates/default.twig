@@ -1,0 +1,11 @@
+{% extends "@snippets/app.twig" %}
+
+{% block main %}
+<article>
+    {% for data in page.blocks.toBuilderBlocks %}
+        {% if data._key == 'textandimage' %}
+        {% include '@snippets/blocks/textandimage.twig' with {'data': data } %}
+        {% endif %}
+    {% endfor %}
+</article>
+{% endblock  %}

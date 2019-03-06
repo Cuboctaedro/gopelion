@@ -13,6 +13,12 @@ tabs:
                     template: hotel
                     status: all
                     max: 2
+                locations:
+                    type: pages
+                    headline: Τοποθεσία
+                    template: locations
+                    status: all
+                    max: 1
                 pages:
                     type: pages
                     headline: Σελίδες Περιεχομένου

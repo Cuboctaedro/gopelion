@@ -68,6 +68,21 @@ fieldsets:
                 type: files
                 layout: cards
                 max: 5
+    singlebanner:
+        label: Single Banner
+        fields:
+            heading:
+                label: Κεφαλίδα
+                type: text
+            link:
+                label: Link
+                type: pages
+                multiple: false
+            image:
+                label: Εικόνα
+                type: files
+                layout: cards
+                multiple: false
     banners:
         label: Banners
         fields:
@@ -77,7 +92,7 @@ fieldsets:
             banner:
                 type: structure
                 label: Banner
-                min: 1
+                min: 3
                 max: 3
                 fields:
                     heading:

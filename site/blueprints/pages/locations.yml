@@ -1,0 +1,11 @@
+title: Locations Page
+
+tabs:
+    content:
+        label: Pages
+        icon: text
+        sections:
+            pages:
+                type: pages
+                headline: Locations
+                templates: default

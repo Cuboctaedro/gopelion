@@ -1,0 +1,20 @@
+{% import "@snippets/atoms/ruler.twig" as ruler %}
+
+<h2 class="subheading text-center md:text-left">{{ heading }}</h2>
+{{ ruler.left() }}
+{% if text|length > 500 %}
+<div class="maintext paragraphs mb-32 text-center md:text-left" data-role="moreless">
+    <div data-role="truncated">
+        {{ text.excerpt(500, false) }}
+    </div>
+    <div data-role="fulltext" hidden>
+        {{ text.kt }}
+    </div>
+    <button class="font-bold link mt-24" data-role="readmore">{{ t('readmore') }}</button>
+    <button class="font-bold link mt-24" data-role="readless" hidden>{{ t('readless') }}</button>
+</div>
+{% else %}
+<div class="maintext paragraphs mb-32 text-center md:text-left">
+    {{ text.kt }}
+</div>
+{% endif %}
