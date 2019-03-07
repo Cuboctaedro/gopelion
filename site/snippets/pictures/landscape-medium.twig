@@ -1,0 +1,7 @@
+<picture>
+    <source type="image/jpeg" media="(max-width: 480px)" srcset="{{ image.customsize(480, 320) }}">
+    <source type="image/jpeg" media="(max-width: 768px)" srcset="{{ image.customsize(768, 512) }}">
+    <source type="image/jpeg" media="(max-width: 1300px)" srcset="{{ image.customsize(1300, 867) }}">
+    <source type="image/jpeg" media="(min-width: 1301px)" srcset="{{ image.customsize(900, 600) }}">
+    <img src="{{ image.customsize(900, 600) }}" class="block w-full lazyload">
+</picture>

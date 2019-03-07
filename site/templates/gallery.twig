@@ -1,0 +1,57 @@
+{% extends "@snippets/app.twig" %}
+
+{% block main %}
+<article>
+    {% include '@snippets/parts/pageheader.twig' %}
+
+    <section class="container mx-auto photo-gallery-container">
+        <ul class="gallery-controls list-reset flex flex-row justify-center mb-48">
+            <li><button data-filter="ping" data-reset="true" class="uppercase font-bold tracking-wide text-16 link px-16">{{ t('gallery_all') }}</button></li>
+            <li><button data-filter="ping" data-filter-tag="ghermaniko" class="uppercase font-bold tracking-wide text-16 link px-16">{{ t('gallery_ghermaniko') }}</button></li>
+            <li><button data-filter="ping" data-filter-tag="victoria" class="uppercase font-bold tracking-wide text-16 link px-16">{{ t('gallery_victoria') }}</button></li>
+            <li><button data-filter="ping" data-filter-tag="mamma" class="uppercase font-bold tracking-wide text-16 link px-16">{{ t('gallery_mammamia') }}</button></li>
+            <li><button data-filter="ping" data-filter-tag="location" class="uppercase font-bold tracking-wide text-16 link px-16">{{ t('gallery_location') }}</button></li>
+            <li><button data-filter="ping" data-filter-tag="activities" class=" uppercase font-bold tracking-wide text-16 link px-16">{{ t('gallery_activities') }}</button></li>
+        </ul>
+        <div class="list-reset ping photo-gallery" style="column-count: 4; column-gap: 0;">
+            {% for picture in page.gallery.toStructure %}
+                {% set image = picture.galleryimage.toFile %}
+                {% if image.width > image.height %}
+                    <a
+                        class="p-16 w-full block"
+                        data-tags="{% for tag in picture.tags.split %} {{ tag }} {% endfor %}"
+                        href="{{ image.customsize(1600, 1200) }}"
+                        data-at-480="{{ image.customsize(480, 320) }}"
+                        data-at-768="{{ image.customsize(768, 512) }}"
+                        data-at-1200="{{ image.customsize(1200, 800) }}"
+                        data-at-1600="{{ image.customsize(1600, 1200) }}"
+                    >
+                    <picture>
+                        <source type="image/jpeg" media="(max-width: 480px)" srcset="{{ image.customsize(480, 320) }}">
+                        <source type="image/jpeg" media="(min-width: 481px)" srcset="{{ image.customsize(768, 512) }}">
+                        <img src="{{ image.customsize(768, 512) }}" class="block w-full lazyload">
+                    </picture>
+                </a>
+            {% else %}
+                <a
+                    class="p-16 w-full block"
+                    data-tags="{% for tag in picture.tags.split %} {{ tag }} {% endfor %}"
+                    href="{{ image.customsize(800, 1200) }}"
+                    data-at-480="{{ image.customsize(480, 720) }}"
+                    data-at-768="{{ image.customsize(768, 1152) }}"
+                    data-at-1600="{{ image.customsize(800, 1200) }}"
+                >
+                    <picture>
+                        <source type="image/jpeg" media="(max-width: 480px)" srcset="{{ image.customsize(480, 720) }}">
+                        <source type="image/jpeg" media="(min-width: 481px)" srcset="{{ image.customsize(768, 1152) }}">
+                        <img src="{{ image.customsize(768, 1152) }}" class="block w-full lazyload">
+                    </picture>
+                </a>
+            {% endif %}
+        {% endfor %}
+        </div>
+    </section>
+
+    {% include '@snippets/blocks/index.twig' %}
+</article>
+{% endblock %}

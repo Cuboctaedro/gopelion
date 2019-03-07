@@ -1,0 +1,13 @@
+{% for data in page.blocks.toBuilderBlocks %}
+    {% if data._key == 'textandimage' %}
+    {% include '@snippets/blocks/textandimage.twig' with {'data': data } %}
+    {% elseif data._key == 'textandgallery' %}
+    {% include '@snippets/blocks/textandgallery.twig' with {'data': data } %}
+    {% elseif data._key == 'banners' %}
+    {% include '@snippets/blocks/banners.twig' with {'data': data } %}
+    {% elseif data._key == 'singlebanner' %}
+    {% include '@snippets/blocks/singlebanner.twig' with {'data': data } %}
+    {% elseif data._key == 'largetext' %}
+    {% include '@snippets/blocks/largetext.twig' with {'data': data } %}
+    {% endif %}
+{% endfor %}

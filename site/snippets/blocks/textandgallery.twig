@@ -1,0 +1,61 @@
+{% if data.layout == 'textimage' %}
+
+    {% embed "@snippets/containers/wrapleft.twig" %}
+        {% block wrapleftone %}
+            {% include '@snippets/parts/textblock.twig' with {'heading': data.heading, 'text' : data.text } %}
+        {% endblock %}
+        {% block wraplefttwo %}
+            <div class="slider-gallery">
+                <ul class="list-reset landscape">
+                    {% for image in data.gallery.toFiles %}
+                        <li class="absolute pin w-full h-full">
+                            {% include '@snippets/pictures/landscape-medium.twig' with {'image': image } %}
+                        </li>
+                    {% endfor %}
+                </ul>
+                <div class="controls flex flex-row items-center pt-8 float-right">
+                    <button class="prev text-24 px-8 leading-none link">&#10229;</button>
+                    <div>
+                        <span class="slide-index text-14 leading-loose"></span><span class="total text-14 leading-loose"> / {{ data.gallery.yaml|length }}</span>
+                    </div>
+                    <button class="next text-24 px-8 leading-none link">&#10230;</button>
+                </div>
+            </div>
+            <div class="hidden sm:block shadow-2 w-1/2 ml-24 -mt-72 md:ml-50 md:-mt-50 z-10 relative" >
+                {% include '@snippets/pictures/landscape-medium.twig' with {'image': data.image.toFile } %}
+            </div>
+        {% endblock %}
+    {% endembed %}
+
+{% else %}
+
+    {% embed "@snippets/containers/wrapright.twig" %}
+        {% block wraprightone %}
+        <div class="slider-gallery">
+            <ul class="list-reset landscape">
+                {% for image in data.gallery.toFiles %}
+                    <li class="absolute pin w-full h-full">
+                        {% include '@snippets/pictures/landscape-medium.twig' with {'image': image } %}
+                    </li>
+                {% endfor %}
+            </ul>
+            <div class="controls flex flex-row items-center pt-8 float-right">
+                <button class="prev text-24 px-8 leading-none link">&#10229;</button>
+                <div>
+                    <span class="slide-index text-14 leading-loose"></span><span class="total text-14 leading-loose"> / {{ data.gallery.yaml|length }}</span>
+                </div>
+                <button class="next text-24 px-8 leading-none link">&#10230;</button>
+            </div>
+        </div>
+        <div class="hidden sm:block shadow-2 w-1/2 ml-24 -mt-72 md:ml-50 md:-mt-50 z-10 relative" >
+            {% include '@snippets/pictures/landscape-medium.twig' with {'image': data.image.toFile } %}
+        </div>
+        {% endblock %}
+
+        {% block wraprighttwo %}
+            {% include '@snippets/parts/textblock.twig' with {'heading': data.heading, 'text' : data.text } %}
+        {% endblock %}
+
+    {% endembed %}
+
+{% endif %}

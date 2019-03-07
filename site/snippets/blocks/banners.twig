@@ -1,0 +1,31 @@
+{% embed "@snippets/containers/wrapper.twig" %}
+    {% block wrappercontent %}
+
+    {% import '@snippets/atoms/headings.twig' as headings %}
+
+    {% if data.blockheading.isNotEmpty %}
+        {{ headings.sub(data.blockheading, '2', ' text-purple mb-32 font-bold text-center ') }}
+    {% endif %}
+
+    <div class="flex flex-row flex-wrap">
+        {% for banner in data.banner.toStructure %}
+        <div class="w-full sm:w-1/3 p-50 sm:p-16 ">
+            <div class="relative">
+                <picture>
+                    <source type="image/jpeg" media="(max-width: 480px)" srcset="{{ banner.image.toFile.customsize(480, 320) }}">
+                    <source type="image/jpeg" media="(max-width: 480px)" srcset="{{ banner.image.toFile.customsize(768, 512) }}">
+                    <source type="image/jpeg" media="(min-width: 769px)" srcset="{{ banner.image.toFile.customsize(480, 320) }}">
+                    <img src="{{ banner.image.toFile.customsize(768, 512) }}" class="block w-full lazyload">
+                </picture>
+                <div class="absolute pin m-24">
+                    <a class="absolute pin bg-purple text-white flex items-center justify-center uppercase text-21 font-bold tracking-wide opacity-0 hover:opacity-75 effect hover:text-white" href="{{ banner.link.toPage.url }}" title="{{ banner.link.toPage.title }}">
+                        <span>{{ t('readmore') }}</span>
+                    </a>
+                </div>
+            </div>
+            <h3 class="uppercase tracking-wide font-bold text-center mt-16 text-25">{{ banner.heading }}</h3>
+        </div>
+        {% endfor %}
+    </div>
+    {% endblock %}
+{% endembed %}

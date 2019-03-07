@@ -54,7 +54,7 @@ a:hover,
 }
 
 .subheading {
-    @apply text-36 uppercase tracking-wide leading-none font-bold ;
+    @apply text-36 uppercase tracking-wide leading-none  ;
 }
 @screen sm {
     .subheading {

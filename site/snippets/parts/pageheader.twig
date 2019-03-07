@@ -1,0 +1,18 @@
+
+{% embed "@snippets/containers/wrapper.twig" %}
+    {% block wrappercontent %}
+
+        {% import '@snippets/atoms/headings.twig' as headings %}
+        {% import "@snippets/atoms/ruler.twig" as ruler %}
+
+        {{ headings.sub(page.title, '1', ' text-purple font-bold text-center ') }}
+        {{ ruler.center() }}
+
+        {% if page.introtext.isNotEmpty %}
+        <section class="maintext paragraphs text-center mb-48">
+            {{ page.introtext.kt|raw }}
+        </section>
+        {% endif %}
+
+    {% endblock %}
+{% endembed %}

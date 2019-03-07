@@ -1,0 +1,61 @@
+{% extends "@snippets/app.twig" %}
+
+{% block main %}
+<article>
+    {% include '@snippets/parts/pageheader.twig' %}
+
+    {% if page.gallery.isNotEmpty %}
+
+        <section class="mb-72 slider-gallery">
+            <ul class="list-reset landscape">
+                {% for pic in page.gallery.toStructure %}
+                    <li class="absolute pin w-full h-full">
+                        {% include '@snippets/pictures/full.twig' with {'image': pic.image.toFile } %}
+                        <p class="text-center text-white -mt-72">{{ pic.caption }}</p>
+                    </li>
+                {% endfor %}
+            </ul>
+        </section>
+    {% endif %}
+
+    {% embed "@snippets/containers/wrapper.twig" %}
+        {% block wrappercontent %}
+        {% import '@snippets/atoms/headings.twig' as headings %}
+        {% import "@snippets/atoms/ruler.twig" as ruler %}
+        <div class="w-full flex flex-row flex-wrap">
+            <section class="w-full md:w-1/2 mb-72 px-16">
+                {{ headings.sub(t('amenities'), '2', ' text-purple font-regular ') }}
+                {{ ruler.left() }}
+                <div class="mb-32 pl-50">
+                    <ul class="list-reset">
+                        {% for entry in page.amenities.toStructure %}
+                            <li class="leading-loose">{{ entry.item }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </section>
+            <section class="w-full md:w-1/2 mb-72 px-16">
+                {{ headings.sub(t('pricesandoffers'), '2', ' text-purple font-regular ') }}
+                {{ ruler.left() }}
+                <div class="w-full mb-32 pl-48">
+                    <h3 class="font-bold leading-loose mb-8">{{ t('season_low') }}</h3>
+                    <p class="">{{ site.lowseason.kt|raw }}</p>
+                    <p class="text-30 font-bold mb-48 -mt-8">&euro; {{ page.lowprice }}</p>
+                    <h3 class="font-bold leading-loose mb-8">{{ t('season_mid') }}</h3>
+                    <p class="">{{ site.midseason.kt|raw }}</p>
+                    <p class="text-30 font-bold mb-48 -mt-8">&euro; {{ page.midprice }}</p>
+                    <h3 class="font-bold leading-loose mb-8">{{ t('season_high') }}</h3>
+                    <p class="">{{ site.highseason.kt|raw }}</p>
+                    <p class="text-30 font-bold mb-48 -mt-8">&euro; {{ page.highprice }}</p>
+                </div>
+                <div class="w-full mb-32 pl-48">
+                <a class="uppercase tracking-wide px-24 py-16 text-white bg-purple hover:bg-purple-light hover:shadow-2 hover:text-white effect" href="{{ pricespage.url }}">{{ pricespage.title }}</a>
+                </div>
+            </section>
+        </div>
+        {% endblock %}
+    {% endembed %}
+
+    {% include '@snippets/blocks/index.twig' %}
+</article>
+{% endblock %}
