@@ -83,7 +83,7 @@ Blocks:
     - 
       heading: Test 2
       link:
-        - biktwria
+        - fwtografies
       image:
         - 12@landscape.jpg
     - 

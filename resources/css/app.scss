@@ -39,6 +39,14 @@ a:hover,
     @apply text-purple ;
 }
 
+.button {
+    @apply uppercase tracking-wide px-24 py-16 text-white bg-purple effect ;
+}
+.button:hover {
+    @apply bg-purple-light shadow-2 text-white ;
+}
+
+
 .paragraphs p {
     @apply mb-24;
 }
@@ -322,6 +330,11 @@ a:hover,
     width: 1px;
 }
 
+.uniform__potty {
+    position: absolute;
+    left: -9999px;
+}
+
 body {
     display: flex;
     min-height: 100vh;
@@ -345,6 +358,6 @@ body {
     display:none;
   }
 
-
+@import 'flatpickr';
 @import 'baguettebox';
 // @import 'aos';

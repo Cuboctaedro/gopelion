@@ -23,5 +23,6 @@ return array (
         'amenities'          => 'Amenities',
         'pricesandoffers'    => 'Prices and Offers',
         'followus'           => 'Follow Us',
+        'access'           => 'Access',
     ]
 );

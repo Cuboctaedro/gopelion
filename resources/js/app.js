@@ -1,6 +1,8 @@
 // import Siema from 'siema';
 import lazysizes from 'lazysizes';
 import baguetteBox from 'baguettebox.js';
+import flatpickr from "flatpickr";
+
 // import AOS from 'aos';
 
 document.documentElement.className += ' js'; // adds class="js" to <html> element
@@ -197,4 +199,6 @@ document.querySelectorAll('[data-role="moreless"]').forEach(block => {
 
 })
 
-// AOS.init();
+
+flatpickr("#arrival", {});
+flatpickr("#departure", {});

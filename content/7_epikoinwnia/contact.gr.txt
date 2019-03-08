@@ -6,6 +6,23 @@ Introtext:
 
 ----
 
+Address: 
+
+Ξενώνες **Βικτώρια** και **Γερμανικό**
+
+Νταμούχαρη, 37012
+Πήλιο
+
+----
+
+Contacts: Τηλέφωνο 123456789
+
+----
+
+Access: Lorem ipsum dolor sit amet, magna quodsi sed at, qui populo aliquip in. Ius atqui consetetur id, ut vel molestie lucilius, pro euismod delicata efficiendi ex. Cu pri virtute ocurreret definitionem, summo choro nec cu. In vero causae ius. Ea nec antiopam consectetuer, quo eu sumo assum. Mei utinam tamquam cu.
+
+----
+
 Description: 
 
 ----

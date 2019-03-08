@@ -1,0 +1,12 @@
+label:
+    en: Text
+    el: Κείμενο
+type: textarea
+size: medium
+buttons:
+  - bold
+  - italic
+  - link
+  - email
+  - ul
+  - ol

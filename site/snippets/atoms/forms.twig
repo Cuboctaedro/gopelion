@@ -1,0 +1,19 @@
+{% macro input(form, name, label, type, class, attrs) %}
+    {% import _self as forms %}
+    <div class="flex flex-row flex-wrap w-full ">
+        {{ forms.label(label, name) }}
+        <input
+            name="{{ name }}"
+            type="{{ type|default('text') }}"
+            id="{{ name }}"
+            class="flex-grow w-auto border-b border-grey-light focus:border-purple focus:bg-grey-lighter {{ form.error(name) ? ' error ' : ' ' }} {{ class }}"
+            value="{{ form.old(name) }}"
+            {{ attrs }}
+        >
+    </div>
+{% endmacro %}
+
+
+{% macro label(text, for) %}
+    <label class="block w-192 uppercase tracking-wide pr-16 flex-none leading-loose" for="{{ for }}" >{{ text }}</label>
+{% endmacro %}

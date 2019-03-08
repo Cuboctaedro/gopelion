@@ -15,7 +15,8 @@ mix
         extensions: ['twig', 'js', 'php'],
     })
     .version()
-    .copyDirectory('resources/fonts', 'assets/fonts');
+    .copyDirectory('./resources/images', './assets/images')
+    .copyDirectory('./resources/fonts', './assets/fonts');
 
 
 

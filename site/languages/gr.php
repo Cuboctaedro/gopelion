@@ -24,6 +24,7 @@ return array (
         'amenities'          => 'Παροχές',
         'pricesandoffers'    => 'Τιμές και Προσφορές',
         'followus'           => 'Ακολουθήστε μας',
+        'access'           => 'Πώς να έρθετε',
     ]
 
 );

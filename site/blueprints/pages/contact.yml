@@ -11,9 +11,17 @@ tabs:
                     type: fields
                     fields:
                         introtext:
+                            extends: fields/plaineditor
                             label: Εισαγωγικό κείμενο
-                            type: textarea
-                            buttons: false
+                        address:
+                            extends: fields/fulleditor
+                            label: Διεύθυνση
+                        contacts:
+                            extends: fields/fulleditor
+                            label: Email και τηλέφωνα
+                        access:
+                            extends: fields/fulleditor
+                            label: How to get there
           - width: 1/3
             sections:
                 pagefiles:
