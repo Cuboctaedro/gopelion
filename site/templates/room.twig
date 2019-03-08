@@ -3,18 +3,21 @@
 {% block main %}
 <article>
     {% include '@snippets/parts/pageheader.twig' %}
+    {% import '@snippets/atoms/icons.twig'  as icons %}
 
     {% if page.gallery.isNotEmpty %}
 
-        <section class="mb-72 slider-gallery">
-            <ul class="list-reset landscape">
+        <section class="mb-72 slider-gallery relative" data-role="slider-wrapper">
+            <ul class="list-reset cinemascope">
                 {% for pic in page.gallery.toStructure %}
-                    <li class="absolute pin w-full h-full">
+                    <li class="absolute pin w-full h-full" data-role="slide">
                         {% include '@snippets/pictures/full.twig' with {'image': pic.image.toFile } %}
                         <p class="text-center text-white -mt-72">{{ pic.caption }}</p>
                     </li>
                 {% endfor %}
             </ul>
+            <button class="absolute pin-y pin-l w-1/4 z-50" data-role="prev">{{ icons.prev(120) }}</button>
+            <button class="absolute pin-y pin-r w-1/4 z-50" data-role="next">{{ icons.next(120) }}</button>
         </section>
     {% endif %}
 

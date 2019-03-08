@@ -1,0 +1,19 @@
+<div class="slider-gallery fadein" data-role="slider-wrapper">
+    <ul class="list-reset landscape">
+        {% for image in data.gallery.toFiles %}
+            <li class="absolute pin w-full h-full" data-role="slide">
+                {% include '@snippets/pictures/landscape-medium.twig' with {'image': image } %}
+            </li>
+        {% endfor %}
+    </ul>
+    <div class="controls flex flex-row items-center pt-8 float-right">
+        <button class="prev text-24 px-8 leading-none link" data-role="prev">&#10229;</button>
+        <div>
+            <span class="slide-index text-14 leading-loose" data-role="slide-index"></span><span class="total text-14 leading-loose"> / {{ data.gallery.yaml|length }}</span>
+        </div>
+        <button class="next text-24 px-8 leading-none link" data-role="next">&#10230;</button>
+    </div>
+</div>
+<div class="hidden sm:block  w-1/2 ml-24 -mt-72 md:ml-50 md:-mt-50 z-10 relative fadein" >
+    {% include '@snippets/pictures/landscape-medium.twig' with {'image': data.image.toFile } %}
+</div>

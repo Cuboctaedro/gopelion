@@ -40,7 +40,7 @@ a:hover,
 }
 
 .button {
-    @apply uppercase tracking-wide px-24 py-16 text-white bg-purple effect ;
+    @apply uppercase tracking-wide px-48 py-16 text-white font-bold bg-purple effect ;
 }
 .button:hover {
     @apply bg-purple-light shadow-2 text-white ;
@@ -82,12 +82,28 @@ a:hover,
     transition: 0.5s;
 }
 
+.js .slider-gallery li {
+    opacity: 0;
+    z-index: -10;
+    transition: 0.5s;
+}
+.js .slider-gallery li.open {
+    opacity: 1;
+    z-index: 10;
+}
 
 .landscape {
     height: 0;
     overflow: hidden;
     position: relative;
     padding-top: 66.666% !important;
+    width: 100%;
+}
+.cinemascope {
+    height: 0;
+    overflow: hidden;
+    position: relative;
+    padding-top: 50% !important;
     width: 100%;
 }
 
@@ -204,18 +220,12 @@ a:hover,
     @apply fixed shadow-2 w-full ;
     z-index: 1000;
 }
-.gone #siteheader {
-    @apply hidden ;
-}
 .openmenu #siteheader {
     @apply relative shadow-2 ;
     z-index: 1000;
 }
 .openmenu.moving #siteheader {
     @apply fixed ;
-}
-.stabilize.gone #siteheader {
-    @apply relative shadow-2 block ;
 }
 
 
@@ -361,3 +371,17 @@ body {
 @import 'flatpickr';
 @import 'baguettebox';
 // @import 'aos';
+
+
+.js .moving .fadein {
+    opacity: 0;
+    transform: translate3d(0,100px,0);
+    transition-timing-function: ease;
+    transition-duration: 1.2s;
+    transition-property: opacity,transform;
+
+}
+.js .moving .fadenow {
+    opacity: 1;
+    transform: translateZ(0);
+}

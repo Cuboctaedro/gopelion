@@ -2,19 +2,41 @@ title: Hotel Page
 
 tabs:
     content:
-        label: Pages
+        label: Content
         icon: text
-        sections:
-            rooms:
-                type: pages
-                headline: Rooms
-                templates: room
-            pages:
-                type: pages
-                headline: Subpages
-                templates: default
-            prices:
-                type: pages
-                headline: Pricing
-                templates: pricing
-                max: 1
+        columns:
+          - width: 2/3
+            sections:
+                content:
+                    type: fields
+                    fields:
+                        introtext:
+                            label: Intro Text
+                            type: textarea
+                            buttons: false
+                            size: small
+                        logo:
+                            label: Logo
+                            type: files
+                            layout: cards
+                            multiple: false
+                        blocks: fields/blocks
+
+          - width: 1/3
+            sections:
+                prices:
+                    type: pages
+                    headline: Pricing
+                    templates: pricing
+                    max: 1
+                rooms:
+                    type: pages
+                    headline: Rooms
+                    templates: room
+                pages:
+                    type: pages
+                    headline: Subpages
+                    templates: default
+                pagefiles:
+                    extends: sections/pagefiles
+    seo: tabs/seo

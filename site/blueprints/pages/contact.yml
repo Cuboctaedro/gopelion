@@ -22,6 +22,12 @@ tabs:
                         access:
                             extends: fields/fulleditor
                             label: How to get there
+                        formtitle:
+                            type: text
+                            label: Τίτλος Φόρμας
+                        formsubtitle:
+                            type: text
+                            label: Υπότιτλος Φόρμας
           - width: 1/3
             sections:
                 pagefiles:

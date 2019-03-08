@@ -16,7 +16,8 @@
             {% if item.hasListedChildren %}
                 <li class="has-dropdown-button z-0">
                     <span class="flex flex-row menulink">
-                        <button class="link uppercase type-14 tracking-wide {{ item.isOpen ? ' text-purple ' : ' ' }} block" data-toggle-target="#submenu-{{ item.slug }}">{{ item.title }}</button> {{ icons.arrowdown() }}
+                        <a class="uppercase type-14 tracking-wide {{ item.isOpen ? ' text-purple ' : ' ' }} block" href="{{ item.url }}">{{ item.title }}</a>
+                        <button class="dropdown-button" data-toggle-target="#submenu-{{ item.slug }}">{{ icons.arrowdown() }}</button>
                     </span>
                     <ul class="dropdown list-reset" id="submenu-{{ item.slug }}">
                         {% for subitem in item.children.listed %}

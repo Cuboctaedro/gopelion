@@ -2,6 +2,7 @@
 import lazysizes from 'lazysizes';
 import baguetteBox from 'baguettebox.js';
 import flatpickr from "flatpickr";
+import Hammer from "hammerjs";
 
 // import AOS from 'aos';
 
@@ -66,6 +67,13 @@ function elementFromTop(elem, classToAdd, distanceFromTop, unit) {
     }
 }
 
+function moveLeaf() {
+    let scrolled = window.pageYOffset;
+    let leaves = document.querySelectorAll('.leaves');
+    leaves.forEach(leaf => {
+        background.style.top = - (scrolled * 0.2) + 'px';
+    })
+}
 
 
 window.addEventListener(
@@ -73,33 +81,12 @@ window.addEventListener(
     throttle(
         function() {
         	elementFromTop(document.querySelectorAll('.bodywrap'), 'moving',  -1, 'pixels');
-        	elementFromTop(document.querySelectorAll('.bodywrap'), 'gone', -260, 'pixels');
+            elementFromTop(document.querySelectorAll('.fadein'), 'fadenow',  80, 'percent');
     	},
         100),
     false
 );
 
-
-// document.querySelectorAll('.slider-gallery').forEach(slider => {
-//     var printSlideIndex = function() {
-//         slider.querySelector('.slide-index').innerHTML = this.currentSlide + 1;
-//     }
-//     var siema = slider.querySelectorAll('.siema')[0];
-//     var gallery = new Siema({
-//         onInit: printSlideIndex,
-//         onChange: printSlideIndex,
-//         selector: siema,
-//         duration: 500,
-//         loop: true,
-//     });
-//     var prev = slider.querySelector('.prev');
-//     var next = slider.querySelector('.next');
-//
-//     prev.addEventListener('click', () => gallery.prev());
-//     next.addEventListener('click', () => gallery.next());
-//
-//     // setInterval(() => gallery.next(), 2500);
-// });
 
 
 var gallerybox = document.querySelector('.photo-gallery-container');
@@ -199,6 +186,59 @@ document.querySelectorAll('[data-role="moreless"]').forEach(block => {
 
 })
 
+document.querySelectorAll('[data-role="slider-wrapper"]').forEach(gallery => {
+    let slides = Array.from(gallery.querySelectorAll('[data-role="slide"]'));
+    let prev = gallery.querySelector('[data-role="prev"]');
+    let next = gallery.querySelector('[data-role="next"]');
+    let index = gallery.querySelector('[data-role="slide-index"]');
+
+    let current = 0;
+    let showSlide = function(num) {
+        slides.forEach(slide => {
+            if (slide != slides[num]) {
+                delClass(slide, 'open');
+            } else addClass(slide, 'open');
+            if (index != null) {
+                index.innerHTML = current + 1;
+            }
+        })
+    }
+    let showPrev = function() {
+        if (current > 0) {
+            current = current - 1;
+        } else {
+            current = slides.length - 1;
+        }
+        showSlide(current);
+    }
+    let showNext = function() {
+        if (current == slides.length - 1) {
+            current = 0;
+        } else {
+            current = current + 1;
+        }
+        showSlide(current);
+    }
+
+    showSlide(current);
+
+    prev.addEventListener(
+        'click',
+        function() {showPrev()},
+        false
+    );
+
+    next.addEventListener(
+        'click',
+        function() {showNext()},
+        false
+    );
+    slides.forEach(slide => {
+        let touch = new Hammer(slide);
+        touch.on("panleft", function() {showPrev()});
+        touch.on("panright", function() {showNext()});
+    })
+})
 
 flatpickr("#arrival", {});
 flatpickr("#departure", {});

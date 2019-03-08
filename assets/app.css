@@ -553,11 +553,12 @@ a:hover,
 .button {
   text-transform: uppercase;
   letter-spacing: .05em;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
   padding-top: 1rem;
   padding-bottom: 1rem;
   color: #fff;
+  font-weight: 700;
   background-color: #912445;
   transition: .5s;
 }
@@ -609,11 +610,30 @@ a:hover,
   transition: .5s;
 }
 
+.js .slider-gallery li {
+  opacity: 0;
+  z-index: -10;
+  transition: .5s;
+}
+
+.js .slider-gallery li.open {
+  opacity: 1;
+  z-index: 10;
+}
+
 .landscape {
   height: 0;
   overflow: hidden;
   position: relative;
   padding-top: 66.666% !important;
+  width: 100%;
+}
+
+.cinemascope {
+  height: 0;
+  overflow: hidden;
+  position: relative;
+  padding-top: 50% !important;
   width: 100%;
 }
 
@@ -762,10 +782,6 @@ a:hover,
   z-index: 1000;
 }
 
-.gone #siteheader {
-  display: none;
-}
-
 .openmenu #siteheader {
   position: relative;
   box-shadow: 0 3px 6px rgba(0, 0, 0, .16), 0 3px 6px rgba(0, 0, 0, .23);
@@ -774,12 +790,6 @@ a:hover,
 
 .openmenu.moving #siteheader {
   position: fixed;
-}
-
-.stabilize.gone #siteheader {
-  position: relative;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, .16), 0 3px 6px rgba(0, 0, 0, .23);
-  display: block;
 }
 
 #siteheader .menu-wrapper.activate {
@@ -7876,6 +7886,23 @@ span.flatpickr-weekday {
     -webkit-transform: scale(1);
             transform: scale(1);
   }
+}
+
+.js .moving .fadein {
+  opacity: 0;
+  -webkit-transform: translate3d(0, 100px, 0);
+          transform: translate3d(0, 100px, 0);
+  transition-timing-function: ease;
+  transition-duration: 1.2s;
+  transition-property: opacity, -webkit-transform;
+  transition-property: opacity, transform;
+  transition-property: opacity, transform, -webkit-transform;
+}
+
+.js .moving .fadenow {
+  opacity: 1;
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
 }
 
 @media (min-width: 768px) {

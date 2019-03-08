@@ -23,6 +23,14 @@ Access: Lorem ipsum dolor sit amet, magna quodsi sed at, qui populo aliquip in. 
 
 ----
 
+Formtitle: Availability request
+
+----
+
+Formsubtitle: Lorem ipsum dolor sit amet, magna quodsi
+
+----
+
 Description: 
 
 ----

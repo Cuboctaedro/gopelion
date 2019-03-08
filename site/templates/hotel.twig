@@ -1,0 +1,46 @@
+{% extends "@snippets/app.twig" %}
+
+{% block main %}
+<article>
+    {% include '@snippets/parts/pageheader.twig' %}
+    <section>
+
+        {% for room in rooms %}
+
+            {% if loop.index % 2 != 0 %}
+
+                {% embed "@snippets/containers/wrapleft.twig" %}
+                    {% block wrapleftone %}
+                        {% include '@snippets/parts/textblock.twig' with {'heading': room.title, 'text' : room.smalltext } %}
+                    {% endblock %}
+                    {% block wraplefttwo %}
+                        {% if room.gallery.toArray|length > 0 %}
+                            {% include '@snippets/pictures/landscape-medium.twig' with {'image': room.gallery.toStructure.first.image.toFile } %}
+                        {% endif %}
+                    {% endblock %}
+                {% endembed %}
+
+            {% else %}
+
+                {% embed "@snippets/containers/wrapright.twig" %}
+                    {% block wraprightone %}
+                        {% if room.gallery.toArray|length > 0 %}
+                            {% include '@snippets/pictures/landscape-medium.twig' with {'image': room.gallery.toStructure.first.image.toFile } %}
+                        {% endif %}
+                    {% endblock %}
+
+                    {% block wraprighttwo %}
+                        {% include '@snippets/parts/textblock.twig' with {'heading': room.title, 'text' : room.smalltext } %}
+                    {% endblock %}
+
+                {% endembed %}
+
+            {% endif %}
+
+        {% endfor %}
+
+    </section>
+
+    {% include '@snippets/blocks/index.twig' %}
+</article>
+{% endblock %}

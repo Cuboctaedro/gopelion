@@ -3,10 +3,14 @@
 
     {% embed "@snippets/containers/wrapleft.twig" %}
         {% block wrapleftone %}
-            {% include '@snippets/parts/textblock.twig' with {'heading': data.heading, 'text' : data.text } %}
+            <div class="fadein">
+                {% include '@snippets/parts/textblock.twig' with {'heading': data.heading, 'text' : data.text } %}
+            </div>
         {% endblock %}
         {% block wraplefttwo %}
-            {% include '@snippets/pictures/landscape-medium.twig' with {'image': data.image.toFile } %}
+            <div class="fadein">
+                {% include '@snippets/pictures/landscape-medium.twig' with {'image': data.image.toFile } %}
+            </div>
         {% endblock %}
     {% endembed %}
 
@@ -14,11 +18,11 @@
 
     {% embed "@snippets/containers/wrapright.twig" %}
         {% block wraprightone %}
-            {% include '@snippets/pictures/landscape-medium.twig' with {'image': data.image.toFile } %}
+            <div class="fadein">{% include '@snippets/pictures/landscape-medium.twig' with {'image': data.image.toFile } %}</div>
         {% endblock %}
 
         {% block wraprighttwo %}
-            {% include '@snippets/parts/textblock.twig' with {'heading': data.heading, 'text' : data.text } %}
+            <div class="fadein">{% include '@snippets/parts/textblock.twig' with {'heading': data.heading, 'text' : data.text } %}</div>
         {% endblock %}
 
     {% endembed %}

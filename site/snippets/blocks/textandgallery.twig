@@ -5,25 +5,13 @@
             {% include '@snippets/parts/textblock.twig' with {'heading': data.heading, 'text' : data.text } %}
         {% endblock %}
         {% block wraplefttwo %}
-            <div class="slider-gallery">
-                <ul class="list-reset landscape">
-                    {% for image in data.gallery.toFiles %}
-                        <li class="absolute pin w-full h-full">
-                            {% include '@snippets/pictures/landscape-medium.twig' with {'image': image } %}
-                        </li>
-                    {% endfor %}
-                </ul>
-                <div class="controls flex flex-row items-center pt-8 float-right">
-                    <button class="prev text-24 px-8 leading-none link">&#10229;</button>
-                    <div>
-                        <span class="slide-index text-14 leading-loose"></span><span class="total text-14 leading-loose"> / {{ data.gallery.yaml|length }}</span>
-                    </div>
-                    <button class="next text-24 px-8 leading-none link">&#10230;</button>
-                </div>
+        <div class="relative pb-360">
+            {% include '@snippets/parts/slider.twig' %}
+            <div class="leaves absolute pin-r pin-b h-360 fadein" >
+                <img src="{{ kirby.url('assets')  }}/images/Sporakia.png" alt="" style="max-height:100%;" />
             </div>
-            <div class="hidden sm:block shadow-2 w-1/2 ml-24 -mt-72 md:ml-50 md:-mt-50 z-10 relative" >
-                {% include '@snippets/pictures/landscape-medium.twig' with {'image': data.image.toFile } %}
-            </div>
+        </div>
+
         {% endblock %}
     {% endembed %}
 
@@ -31,25 +19,7 @@
 
     {% embed "@snippets/containers/wrapright.twig" %}
         {% block wraprightone %}
-        <div class="slider-gallery">
-            <ul class="list-reset landscape">
-                {% for image in data.gallery.toFiles %}
-                    <li class="absolute pin w-full h-full">
-                        {% include '@snippets/pictures/landscape-medium.twig' with {'image': image } %}
-                    </li>
-                {% endfor %}
-            </ul>
-            <div class="controls flex flex-row items-center pt-8 float-right">
-                <button class="prev text-24 px-8 leading-none link">&#10229;</button>
-                <div>
-                    <span class="slide-index text-14 leading-loose"></span><span class="total text-14 leading-loose"> / {{ data.gallery.yaml|length }}</span>
-                </div>
-                <button class="next text-24 px-8 leading-none link">&#10230;</button>
-            </div>
-        </div>
-        <div class="hidden sm:block shadow-2 w-1/2 ml-24 -mt-72 md:ml-50 md:-mt-50 z-10 relative" >
-            {% include '@snippets/pictures/landscape-medium.twig' with {'image': data.image.toFile } %}
-        </div>
+            {% include '@snippets/parts/slider.twig' %}
         {% endblock %}
 
         {% block wraprighttwo %}

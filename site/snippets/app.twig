@@ -16,11 +16,17 @@
 
     {% import '@snippets/atoms/icons.twig'  as icons %}
 
-    <body class="leading-normal font-sans text-grey-main bodywrap">
+    <body class="leading-normal font-sans text-grey-main bodywrap relative">
         <a class="skip-link" href="#main">Skip to content</a>
         <header class="header flex flex-row flex-wrap effect" id="siteheader">
             <div class="subtitle uppercase tracking-wide py-16 px-24">
-                <a href="{{ site.url }}" >{{ site.sitesubtitle.kt|raw }}</a>
+                <a href="{{ site.url }}" >
+                    {% if kirby.language.code == 'en' %}
+                    <strong>Ghermaniko</strong> & <strong>Victoria</strong> Guesthouses <span class="hidden md:inline">In Damouchari <span class="hidden lg:inline">, Pelion</span></span>
+                    {% else %}
+                    Ξενώνες <strong>Γερμανικό</strong> και <strong>Βικτώρια</strong> <span class="hidden md:inline">στη Νταμούχαρη <span class="hidden lg:inline">Πηλίου</span></span>
+                    {% endif %}
+                </a>
             </div>
             <div class="phone-langs flex flex-row">
                 <div class="phone flex flex-row px-8 py-16 relative">
